@@ -5,7 +5,7 @@ import random
 class User:
 
     """
-    Creates a user class for our password locker account.
+    Creates a user class for our password locker account.                                                
     """
 
     user_list = []
