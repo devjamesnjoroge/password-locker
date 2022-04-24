@@ -32,7 +32,9 @@ This is a python project that enables a user to manage passwords to their online
 
 - Clone this repository into your local machine
 
-- Run unittests by using -python3.6 password_test.py
+- Run unittests by using
+
+  -python3.6 password_test.py
 
 ## Technologies used
 
