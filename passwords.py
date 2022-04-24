@@ -1,3 +1,7 @@
+import string
+import random
+
+
 class User:
 
     """
@@ -63,6 +67,13 @@ class Credentials:
         self.website_address = website_address
         self.username = username
         self.password = password
+    
+    def generatePassword(string_length=9):
+        """
+        Generate a random password string of letters and digits and special characters
+        """
+        password_list = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*?/|"
+        return ''.join(random.choice(password_list) for i in range(string_length))
 
 
 
