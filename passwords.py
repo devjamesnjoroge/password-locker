@@ -68,7 +68,7 @@ class Credentials:
         self.username = username
         self.password = password
     
-    def generatePassword(string_length=9):
+    def generatePassword(string_length=12):
         """
         Generate a random password string of letters and digits and special characters
         """
