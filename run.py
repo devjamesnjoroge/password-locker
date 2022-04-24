@@ -39,7 +39,7 @@ class Run:
             )
         password_option = str(input("[1] or [2]: "))
 
-        while password_option == '' or password_option != '1' and password_option != '2':
+        while password_option != '1' and password_option != '2':
             print("Try again, options available are 1 or 2")
             password_option = str(input("[1] or [2]: "))
 
@@ -73,8 +73,50 @@ class Run:
             )
 
             credentials_option = str(input("[1], [2] or [3] :"))
+
+            while credentials_option == '' and credentials_option != '1' and credentials_option != '2' and credentials_option != 3:
+                print("Try again, options available are 1 or 2 or 3")
+                credentials_option = str(input("[1] or [2] or [3]: "))
+
+            if credentials_option == '1':
+                print("Enter the website address to your account.")
+                website = str(input("Website : "))
+                print("Enter username or login email used.")
+                username = str(input("Username : "))
+                print("Enter the password used.")
+                password = str(input("Password : "))
+
+                passwords.Credentials.credentials_dict[website] = [username, password]
+                print(passwords.Credentials.credentials_dict)
             
-            
+            elif credentials_option == '2':
+                print("Enter the website address to your account.")
+                website = str(input("Website : "))
+                print("Enter username or login email used.")
+                username = str(input("Username : "))
+                print(
+                    """
+                    [1] Generate password or
+                    [2] Create your own password
+                    """
+                    )
+                password_option = str(input("[1] or [2]: "))
+                while password_option == '' and password_option != '1' and password_option != '2':
+                    print("Try again, options available are 1 or 2")
+                    password_option = str(input("[1] or [2]: "))
+
+                if password_option == "1":
+                    password = passwords.Credentials.generatePassword(5)
+                    print(f"your password is {password} please copy it")
+
+                elif password_option == "2":
+                    print("Enter your password")
+                    password = str(input("Password: "))
+
+                passwords.Credentials.credentials_dict[website] = [username, password]
+                print(passwords.Credentials.credentials_dict)
+
+
         else:
             print("Invalid credentials")
 
