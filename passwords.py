@@ -78,7 +78,8 @@ class Credentials:
     credentials_dict = {'example.com': ["username", "password"]}
 
 
-
-        
-
-    
+    def save_credentials(self):
+        """
+        saves newly added credentials to the dictionary
+        """
+        Credentials.credentials_dict.update(self)
