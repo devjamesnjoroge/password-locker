@@ -113,8 +113,14 @@ class Run:
                     print("Enter your password")
                     password = str(input("Password: "))
 
-                passwords.Credentials.credentials_dict[website] = [username, password]
-                print(passwords.Credentials.credentials_dict)
+                else:
+                     print(passwords.Credentials.credentials_dict)
+
+                     passwords.Credentials.credentials_dict[website] = [username, password]
+                     print(passwords.Credentials.credentials_dict)
+
+                
+
 
 
         else:
