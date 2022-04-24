@@ -29,10 +29,20 @@ class User:
 
 
 class Credentials:
-    
+
     """
     Creates a credentials class for the users multiple accounts
     """
+
+    def __init__(self, website_address, username, password):
+
+        """
+        Initializes parameters to our class credentials
+        """
+
+        self.website_address = website_address
+        self.username = username
+        self.password = password
 
 
         
