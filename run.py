@@ -113,14 +113,11 @@ class Run:
                     print("Enter your password")
                     password = str(input("Password: "))
 
-                else:
-                     print(passwords.Credentials.credentials_dict)
-
-                     passwords.Credentials.credentials_dict[website] = [username, password]
-                     print(passwords.Credentials.credentials_dict)
-
+                passwords.Credentials.credentials_dict[website] = [username, password]
+                print(passwords.Credentials.credentials_dict)
                 
-
+            elif credentials_option == '3':
+                print(passwords.Credentials.credentials_dict)
 
 
         else:
