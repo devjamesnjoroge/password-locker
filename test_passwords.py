@@ -11,6 +11,12 @@ class TestPasswords(unittest.TestCase):
         self.new_user = User('devjaymmy', 'devjaymmy@2022')
         self.new_credentials = Credentials('aws.amazon.com', 'devjaymmy', 'devjaymmy@2022')
 
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        Credentials.credentials_dict = []
+
     def test_init(self):
        
         """
@@ -33,7 +39,18 @@ class TestPasswords(unittest.TestCase):
          the credentials list
         '''
         self.new_credentials.save_credentials() # saving the new credentials
-        self.assertEqual(len(Credentials.credentials_dict),2)
+        self.assertEqual(len(Credentials.credentials_dict),1)
+
+    def test_save_multiple_credentials(self):
+            '''
+            test_save_multiple_credentials to check if we can save multiple credentials
+            objects to our credentials_list
+            '''
+            self.new_credentials.save_credentials()
+            test_contact = Credentials("aws.amazon.com", "devjaymmy", "devjaymmy@2022") # new credentials
+            test_contact.save_credentials()
+            self.assertEqual(len(Credentials.credentials_dict),2)
+
 
 
 
