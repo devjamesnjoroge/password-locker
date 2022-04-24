@@ -1,4 +1,5 @@
 from passwords import User
+from passwords import Credentials
 import unittest
 
 class TestPasswords(unittest.TestCase):
@@ -8,6 +9,7 @@ class TestPasswords(unittest.TestCase):
         """
 
         self.new_user = User('devjaymmy', 'devjaymmy@2022')
+        self.new_credentials = Credentials('aws.amazon.com', 'devjaymmy', 'devjaymmy@2022')
 
     def test_init(self):
        
@@ -24,6 +26,17 @@ class TestPasswords(unittest.TestCase):
         '''
         self.new_user.save_User() # saving the new user
         self.assertEqual(len(User.user_list),1)
+
+    def test_save_credentials(self):
+        '''
+        test_save_credentials test case to test if the credentials object is saved into
+         the credentials list
+        '''
+        self.new_credentials.save_credentials() # saving the new credentials
+        self.assertEqual(len(Credentials.credentials_dict),2)
+
+
+
 
 if __name__ == "__main__":
     unittest.main()

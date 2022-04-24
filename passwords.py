@@ -82,4 +82,4 @@ class Credentials:
         """
         saves newly added credentials to the dictionary
         """
-        Credentials.credentials_dict.update(self)
+        Credentials.credentials_dict['self'] = self
