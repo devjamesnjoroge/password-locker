@@ -3,7 +3,9 @@ class User:
     """
     Creates a user class for our password locker account.
     """
+
     user_list = []
+
     """
     Creates an empty users List
     """
@@ -24,6 +26,13 @@ class User:
         """
 
         User.user_list.append(self)
+
+
+class Credentials:
+    
+    """
+    Creates a credentials class for the users multiple accounts
+    """
 
 
         
