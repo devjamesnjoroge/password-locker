@@ -44,6 +44,18 @@ class Credentials:
         self.username = username
         self.password = password
 
+    def add_existing_credentials(self, website_address, username, password):
+
+        """
+        method adds existing credentials of user
+        """
+
+        self.website_address = website_address
+        self.username = username
+        self.password = password
+
+    
+
 
         
 
