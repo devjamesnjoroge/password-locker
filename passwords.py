@@ -75,11 +75,18 @@ class Credentials:
         password_list = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*?/|"
         return ''.join(random.choice(password_list) for i in range(string_length))
 
-    credentials_dict = {'example.com': ["username", "password"]}
+    credentials_dict = ['example.com', "username", "password"]
 
 
     def save_credentials(self):
         """
-        saves newly added credentials to the dictionary
+        saves newly added credentials to the list
         """
-        Credentials.credentials_dict['self'] = self
+        Credentials.credentials_dict.append(self)
+
+    def delete_credentials(self):
+        """
+        Deletes saved credentials in list
+        """
+
+        Credentials.credentials_dict.remove(self)
