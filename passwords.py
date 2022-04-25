@@ -38,33 +38,33 @@ class Credentials:
     Creates a credentials class for the users multiple accounts
     """
 
-    def __init__(self, website_address, username, password):
+    def __init__(self, website, username, password):
 
         """
         Initializes parameters to our class credentials
         """
 
-        self.website_address = website_address
+        self.website = website
         self.username = username
         self.password = password
 
-    def add_existing_credentials(self, website_address, username, password):
+    def add_existing_credentials(self, website, username, password):
 
         """
         method adds existing credentials of user for already existing accounts
         """
 
-        self.website_address = website_address
+        self.website = website
         self.username = username
         self.password = password
 
-    def create_new_credentials(self, website_address, username, password):
+    def create_new_credentials(self, website, username, password):
 
         """
         method enables user to create new credentials for a new account
         """
 
-        self.website_address = website_address
+        self.website = website
         self.username = username
         self.password = password
     
@@ -90,3 +90,21 @@ class Credentials:
         """
 
         Credentials.credentials_dict.remove(self)
+
+    @classmethod
+    def find_by_website(cls,website):
+        '''
+        Method that takes in a website and returns a credential that matches that website.
+
+        Args:
+            number: Website to search for
+        Returns :
+            credentials of account that matches the website.
+        '''
+
+        for credential in cls.credentials_dict:
+            if credential == website:
+                return credential
+            else:
+                return credential
+            

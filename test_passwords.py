@@ -47,12 +47,22 @@ class TestPasswords(unittest.TestCase):
             objects to our credentials_list
             '''
             self.new_credentials.save_credentials()
-            test_contact = Credentials("aws.amazon.com", "devjaymmy", "devjaymmy@2022") # new credentials
-            test_contact.save_credentials()
+            test_credentials = Credentials("aws.amazon.com", "devjaymmy", "devjaymmy@2022") # new credentials
+            test_credentials.save_credentials()
             self.assertEqual(len(Credentials.credentials_dict),2)
 
+    def test_find_credentials_by_website(self):
+        '''
+        test to check if we can find a credential by website and display information
+        '''
 
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("www.example.com", "devjaymmy", "Test@2022") # new credentials
+        test_credentials.save_credentials()
 
+        found_website = Credentials.find_by_website("www.example.com")
+
+        self.assertEqual(found_website.username, test_credentials.username )
 
 
 if __name__ == "__main__":
