@@ -86,7 +86,8 @@ class Run:
                 print("Enter the password used.")
                 password = str(input("Password : "))
 
-                passwords.Credentials.credentials_dict[website] = [username, password]
+                add_credentials = passwords.Credentials(website, username, password)
+                add_credentials.save_credentials()
                 print(passwords.Credentials.credentials_dict)
             
             elif credentials_option == '2':
@@ -106,14 +107,21 @@ class Run:
                     password_option = str(input("[1] or [2]: "))
 
                 if password_option == "1":
-                    password = passwords.Credentials.generatePassword(5)
+                    print("What length do you want your password to have?")
+                    length = str(input("value between 6 and 12 : "))
+                    while length == "" :
+                        print("invalid input")
+                        length = str(input("value between 6 and 12 : "))
+
+                    password = passwords.Credentials.generatePassword(length)
                     print(f"your password is {password} please copy it")
 
                 elif password_option == "2":
                     print("Enter your password")
                     password = str(input("Password: "))
 
-                passwords.Credentials.credentials_dict[website] = [username, password]
+                add_credentials = passwords.Credentials(website, username, password)
+                add_credentials.save_credentials()
                 print(passwords.Credentials.credentials_dict)
                 
             elif credentials_option == '3':
