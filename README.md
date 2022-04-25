@@ -34,7 +34,9 @@ This is a python project that enables a user to manage passwords to their online
 
 - Run unittests by using
 
-  -python3.6 password_test.py
+  -python3.6 passwords_test.py
+
+- run the run.py by using bash app_runner.sh
 
 ## Technologies used
 
